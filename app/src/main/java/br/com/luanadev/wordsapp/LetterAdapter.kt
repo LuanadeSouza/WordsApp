@@ -12,11 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
-
     private val list = ('A').rangeTo('Z').toList()
 
+
+
+
+
+
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val button: Button = view.findViewById(R.id.button_item)
+        val button = view.findViewById<Button>(R.id.button_item)
     }
 
     override fun getItemCount(): Int {
@@ -32,12 +36,12 @@ class LetterAdapter :
     }
 
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-        val item = list[position]
+        val item = list.get(position)
         holder.button.text = item.toString()
         holder.button.setOnClickListener {
             val context = holder.view.context
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra("letter", holder.button.text.toString())
+            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
             context.startActivity(intent)
         }
     }
