@@ -14,7 +14,6 @@ class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     private val list = ('A').rangeTo('Z').toList()
 
-
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)
     }
